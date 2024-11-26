@@ -6,6 +6,8 @@ import ActivityCard from './components/ActivityCard';
 import Footer from './components/Footer';
 import theme from './styles/theme';
 import Snowfall from 'react-snowfall';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const activities = [
   { "title": "Festive Attractions & Experiences", "activity": "Visit the Montreal Christmas Market (Le Grand Marché de Noël)." },
@@ -83,18 +85,27 @@ const activities = [
 
 function App() {
   const [currentActivity, setCurrentActivity] = useState(
-    "Click 'Shuffle' to find your next activity!"
+    { title: "", activity: "Click 'Shuffle' to find your next activity!" }
   );
+  const [counter, setCounter] = useState(0);
 
   const shuffleActivity = () => {
-    const randomActivity =
-      activities[Math.floor(Math.random() * activities.length)];
+    if(counter > 5) {
+      console.log(counter)
+      toast.success('Ok picky one... I got you');
+      setCounter(0);
+    } else {
+      setCounter(counter+1);
+    }
+    const randomActivity = activities[Math.floor(Math.random() * activities.length)];
     setCurrentActivity(randomActivity);
+
   };
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <ToastContainer />
       <Snowfall />
       <Box
         sx={{
