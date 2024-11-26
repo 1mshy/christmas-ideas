@@ -8,6 +8,7 @@ import theme from './styles/theme';
 import Snowfall from 'react-snowfall';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { annoyed_notifications } from './funny';
 
 const activities = [
   { "title": "Festive Attractions & Experiences", "activity": "Visit the Montreal Christmas Market (Le Grand Marché de Noël)." },
@@ -82,7 +83,6 @@ const activities = [
   { "title": "Romantic Ideas", "activity": "Write Christmas wishes together and exchange them." }
 ]
 
-
 function App() {
   const [currentActivity, setCurrentActivity] = useState(
     { title: "", activity: "Click 'Shuffle' to find your next activity!" }
@@ -90,10 +90,9 @@ function App() {
   const [counter, setCounter] = useState(0);
 
   const shuffleActivity = () => {
-    if(counter > 5) {
-      console.log(counter)
-      toast.success('Ok picky one... I got you');
-      setCounter(0);
+    if(counter >= 5) {
+      annoyed_notifications();
+      setCounter(1);
     } else {
       setCounter(counter+1);
     }
