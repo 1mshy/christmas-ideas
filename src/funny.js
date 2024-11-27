@@ -58,6 +58,9 @@ export const annoyed_notifications = () => {
     });
     delay(difference * 10).then(() => {
         toast.success('💀');
+    });    
+    delay(difference * 11).then(() => {
+        toast.success('That was your doing.');
     });
 
 }
