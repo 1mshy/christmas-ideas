@@ -13,15 +13,23 @@ import theme from './styles/theme';
 /**
  * Fetches the json data from my github
  */
-const activities = await fetch("https://raw.githubusercontent.com/1mshy/christmas-ideas/refs/heads/main/public/activities.json")
+let activities;
+
+fetch("https://raw.githubusercontent.com/1mshy/christmas-ideas/refs/heads/main/public/activities.json")
   .then(res => res.json())
+  .then(res => {
+    activities = res
+  })
 
 
 // if you want to customize them from the file in public/activities.json,
 // and uncomment the code under and comment the fetch statement above
 //
-// const activities = await fetch("activities.json")
-//   .then(res => res.json())
+fetch("activities.json")
+  .then(res => res.json())
+  .then(res => {
+    activities = res
+  })
 //
 
 function App() {
@@ -31,6 +39,7 @@ function App() {
   const [counter, setCounter] = useState(0);
 
   const shuffleActivity = () => {
+    if (!activities) return;
     if (counter >= 5) {
       annoyed_notifications();
       setCounter(1);
