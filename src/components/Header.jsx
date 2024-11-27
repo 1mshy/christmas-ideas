@@ -1,6 +1,5 @@
-import React from 'react';
 import { AppBar, Toolbar, Typography } from '@mui/material';
-import Snowfall from 'react-snowfall';
+import React from 'react';
 
 function Header() {
   return (

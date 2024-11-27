@@ -20,6 +20,7 @@ function Footer() {
         Made with ❤️ for the most beautiful girl in the world 
       </Typography>
       <Typography variant="body3">
+        {/* Change writing here for your very own significant other */}
         Kyra - No comment.
       </Typography>
     </Box>

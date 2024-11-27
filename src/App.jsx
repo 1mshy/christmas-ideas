@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import { Box, CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
-import { CssBaseline, Box } from '@mui/material';
-import Header from './components/Header';
+import React, { useState } from 'react';
+import Snowfall from 'react-snowfall';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import ActivityCard from './components/ActivityCard';
 import Footer from './components/Footer';
-import theme from './styles/theme';
-import Snowfall from 'react-snowfall';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import Header from './components/Header';
 import { annoyed_notifications } from './funny';
+import theme from './styles/theme';
 
 const activities = [
   { "title": "Festive Attractions & Experiences", "activity": "Visit the Montreal Christmas Market (Le Grand Marché de Noël)." },
@@ -21,7 +21,11 @@ const activities = [
   { "title": "Festive Attractions & Experiences", "activity": "Visit Notre-Dame Basilica for their special holiday light show, Aura." },
   { "title": "Festive Attractions & Experiences", "activity": "Take a Christmas-themed carriage ride in Old Montreal." },
   { "title": "Festive Attractions & Experiences", "activity": "Experience the Holiday Lights Tour across downtown Montreal." },
+  { "title": "Outdoor Winter Fun", "activity": "SNOWBALL FIGHTTTTT!!!!!☃️☃️" },
+  { "title": "Outdoor Winter Fun", "activity": "Go skiing or snowboarding down Saint-Sauver ⛷️🎿🏂" },
   { "title": "Outdoor Winter Fun", "activity": "Go sledding at Parc La Fontaine." },
+  { "title": "Outdoor Winter Fun", "activity": "Go skating at an arena" },
+  { "title": "Outdoor Winter Fun", "activity": "Get Tims and go skating at an outdoor park" },
   { "title": "Outdoor Winter Fun", "activity": "Try cross-country skiing at Parc Jean-Drapeau." },
   { "title": "Outdoor Winter Fun", "activity": "Enjoy snowshoeing on Mount Royal." },
   { "title": "Outdoor Winter Fun", "activity": "Explore Lachine Canal Ice Walk." },
@@ -32,6 +36,7 @@ const activities = [
   { "title": "Outdoor Winter Fun", "activity": "Hike through snowy trails in Cap-Saint-Jacques Nature Park." },
   { "title": "Outdoor Winter Fun", "activity": "Try ice climbing adventures on nearby frozen waterfalls." },
   { "title": "Festive Food & Drink", "activity": "Warm up with hot chocolate from Juliette et Chocolat." },
+  { "title": "Festive Food & Drink", "activity": "Make a warm dinner at home while listening to christmas cheer" },
   { "title": "Festive Food & Drink", "activity": "Indulge in holiday pastries from Pâtisserie Au Kouign-Amann." },
   { "title": "Festive Food & Drink", "activity": "Visit a cabane à sucre (sugar shack) for holiday treats." },
   { "title": "Festive Food & Drink", "activity": "Try mulled wine at a local holiday market." },
@@ -61,6 +66,8 @@ const activities = [
   { "title": "Cultural & Historical Activities", "activity": "Watch a holiday-themed play or ballet, like The Nutcracker." },
   { "title": "Cultural & Historical Activities", "activity": "Visit the McCord Museum’s winter exhibits." },
   { "title": "Cultural & Historical Activities", "activity": "Discover vintage Christmas displays at local antique shops." },
+  { "title": "Family-Friendly Fun", "activity": "Take out the rusty game of monopoly" },
+  { "title": "Family-Friendly Fun", "activity": "Have fun explaining your favourite personal projects to eachother" },
   { "title": "Family-Friendly Fun", "activity": "Ride the Grande Roue de Montréal for snowy views." },
   { "title": "Family-Friendly Fun", "activity": "Visit La Ronde amusement park’s winter wonderland." },
   { "title": "Family-Friendly Fun", "activity": "Enjoy Christmas-themed escape rooms." },
@@ -85,7 +92,7 @@ const activities = [
 
 function App() {
   const [currentActivity, setCurrentActivity] = useState(
-    { title: "", activity: "Click 'Shuffle' to find your next activity!" }
+    { title: "", activity: "Click 'Shuffle' to find your next cheerful activity!" }
   );
   const [counter, setCounter] = useState(0);
 
